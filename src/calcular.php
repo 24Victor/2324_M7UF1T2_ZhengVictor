@@ -1,32 +1,3 @@
-<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <title>Calculadora Web</title>
-</head>
-<body>
-    <h1>Calculadora web númerica i de strings</h1>
-    <form action="" method="POST">
-        <label for="valor10">Valor 1:</label>
-        <input type="text" id="valor1" name="valor1" required><br><br>
-
-        <label for="valor2">Valor 2:</label>
-        <input type="text" id="valor2" name="valor2" required><br><br>
-
-        <label for="operacio">Operació</label>
-        <select id="operacio" name="operacio">
-            <option value="suma">Suma</option>
-            <option value="resta">Resta</option>
-            <option value="multiplicar">Multiplicar</option>
-            <option value="dividir">Dividir</option>
-            <option value="concatenar">Concatenar</option>
-            <option value="eliminar">Eliminar Substring</option>
-        </select>
-        <br><br>
-
-        <input type="submit" value="Calcular">
-    </form>
-</body>
-
 <?php
 //Verificar si el Formulari ha sigut enviat
 if($_SERVER['REQUEST_METHOD'] == "POST")    
