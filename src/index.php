@@ -29,7 +29,7 @@
 
 <?php
 //Verificar si el Formulari ha sigut enviat
-if($_SERVER['REQUEST_METHOD'] == "POST")    
+if($_SERVER['REQUEST_METHOD'] == "POST"){ 
     //Guardar els valors enviats del formulari
     $valor1 = $_POST['valor1'];
     $valor2 = $_POST['valor2'];
@@ -92,4 +92,5 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     }
 
     echo "<h2>Resultat: $resultat</h2>";
+}       
 ?>
