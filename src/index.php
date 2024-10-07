@@ -3,13 +3,15 @@
 session_start();
 
 // definir la constant per al calcul factorial, en PHP és en mayúscules i sense $
-const CALCULFACTORIAL = 'recursiva';
+const CALCULFACTORIAL = 'iterativa';
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
+    <!-- Meta Viewport asegura adaptar la pagina a diferents tamanys de pantalla -->        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora Web</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,7 +31,8 @@ const CALCULFACTORIAL = 'recursiva';
                 <label for="valor2" class="form-label">Valor 2:</label>
                 <input type="text" id="valor2" name="valor2" class="form-control">
             </div>
-            <div class="mb-3">
+            <!-- Adapta a diferents tamany de pantalla i alinea els botons -->
+            <div class="mb-3 d-flex flex-wrap gap-2 justify-content-center">
                 <button type="submit" name="operacio" value="suma" class="btn btn-primary">Suma</button>
                 <button type="submit" name="operacio" value="resta" class="btn btn-secondary">Resta</button>
                 <button type="submit" name="operacio" value="multiplicar" class="btn btn-success">Multiplicar</button>
