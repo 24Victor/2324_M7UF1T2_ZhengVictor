@@ -142,7 +142,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             break;
     }
 
-    // Guardar la operación en el historial de la sesión
+    // Guardar la operació en el historial de la sessió
     $operacioCompleta = "Operació: $operacio - Valor 1: $valor1, Valor 2: $valor2 - Resultat: $resultat";
     //Agrega la operacio al historial
     $_SESSION['historial'][] = $operacioCompleta;
