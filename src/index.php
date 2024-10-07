@@ -1,36 +1,48 @@
 <?php
-//iniciar sessió
+// iniciar sessió
 session_start();
 
-//definir la constant per al calcul factorial, en php és en mayuscules i sense $
+// definir la constant per al calcul factorial, en PHP és en mayúscules i sense $
 const CALCULFACTORIAL = 'recursiva';
 ?>
 
 <!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Calculadora Web</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Calculadora web númerica i de strings</h1>
-    <form action="" method="POST">
-        <label for="valor10">Valor 1:</label>
-        <input type="text" id="valor1" name="valor1" required><br><br>
+    <div class="container">
+        <h1 class="text-center my-4">Calculadora web númerica i de strings</h1>
+        <form action="" method="POST" class="border p-4 rounded">
 
-        <label for="valor2">Valor 2:</label>
-        <input type="text" id="valor2" name="valor2" required><br><br>
-
-        <button type="submit" name="operacio" value="suma">Suma</button>
-        <button type="submit" name="operacio" value="resta">Resta</button>
-        <button type="submit" name="operacio" value="multiplicar">Multiplicar</button>
-        <button type="submit" name="operacio" value="dividir">Dividir</button>
-        <button type="submit" name="operacio" value="concatenar">Concatenar</button>
-        <button type="submit" name="operacio" value="eliminar">Eliminar Substring</button>
-        <button type="submit" name="operacio" value="factorial">Calcular Factorial Iterativa/Recursiva</button>
-
-    </form>
-
+            <div class="mb-3">
+                <label for="valor1" class="form-label">Valor 1:</label>
+                <input type="text" id="valor1" name="valor1" class="form-control" required>
+            </div>
+            <!-- marge inferior -->    
+            <div class="mb-3">
+                <label for="valor2" class="form-label">Valor 2:</label>
+                <input type="text" id="valor2" name="valor2" class="form-control">
+            </div>
+            <div class="mb-3">
+                <button type="submit" name="operacio" value="suma" class="btn btn-primary">Suma</button>
+                <button type="submit" name="operacio" value="resta" class="btn btn-secondary">Resta</button>
+                <button type="submit" name="operacio" value="multiplicar" class="btn btn-success">Multiplicar</button>
+                <button type="submit" name="operacio" value="dividir" class="btn btn-danger">Dividir</button>
+                <button type="submit" name="operacio" value="concatenar" class="btn btn-info">Concatenar</button>
+                <button type="submit" name="operacio" value="eliminar" class="btn btn-warning">Eliminar Substring</button>
+                <button type="submit" name="operacio" value="factorial" class="btn btn-dark">Calcular Factorial</button>
+            </div>
+        </form>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-kkvR5/7z+V0qgAecB+BxfGTGxrg9fv/6PlonxZTLE2Hkd/s0IhbneMa5ux/Wb0J" crossorigin="anonymous"></script>
+    </div>
 </body>
+</html>
 
 <?php
 
@@ -89,9 +101,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     }
 
     function calcularFactorial($n){
-        if (CALCULFACTORIAL == 'iterativa'){
+        if (CALCULFACTORIAL === 'iterativa'){
             return factorialIterativa($n);
-        }elseif (CALCULFACTORIAL == 'recursiva'){
+        }elseif (CALCULFACTORIAL === 'recursiva'){
             return factorialRecursiva($n);
         }else{
             return "ERROR: Calcul no valid";
@@ -131,17 +143,20 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     //Agrega la operacio al historial
     $_SESSION['historial'][] = $operacioCompleta;
 
-    echo "<h2>Resultat: $resultat</h2>";
+    echo "<h2 class='text-center mt-4'>Resultat: $resultat</h2>";
     }       
     
     //si el historial no esta buit que te un registre en el historial, mostrara el titul, 
     if (!empty($_SESSION['historial'])) {
-        echo "<h3>Historial d'operacions:</h3>";
-        echo "<ul>";
+        echo "<div class='d-flex justify-content-center'>"; 
+        echo "<div class='text-center'>";
+        echo "<h3 class='text-center my-4'>Historial d'operacions:</h3>";
+        echo "<ul class='list-group'>";
         // Bucle que recorre el historial de la sessió, almacenant cada operació en la variable $operacioHistorial,
         foreach ($_SESSION['historial'] as $operacioHistorial) {
-            echo "<li>$operacioHistorial</li>";
+            echo "<li class='list-group-item'>$operacioHistorial</li>";
         }
         echo "</ul>";
+
     }
 ?>
