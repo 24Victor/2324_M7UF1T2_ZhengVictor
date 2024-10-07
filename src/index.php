@@ -16,8 +16,9 @@ const CALCULFACTORIAL = 'recursiva';
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center my-4">Calculadora web númerica i de strings</h1>
-        <form action="" method="POST" class="border p-4 rounded">
+        <div class="header">
+            <h1 class="text-center my-4">Calculadora web númerica i de strings</h1>
+            <form action="" method="POST" class="border p-4 rounded">
 
             <div class="mb-3">
                 <label for="valor1" class="form-label">Valor 1:</label>
